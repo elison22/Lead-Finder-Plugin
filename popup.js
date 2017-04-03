@@ -119,17 +119,21 @@ document.addEventListener('DOMContentLoaded', function() {
 
     var focusUser = url.match(/.{4}-.{3}/g)[0];
 
-    alert("here we go with " + focusUser);
-    alert("for reals");
+    var baseURL = url.match(/^.+?[^\/:](?=[?\/]|$)/g)[0];
+
+    console.log("here we go with " + focusUser);
+    console.log("for reals");
     try{
-      jQuery.get("/tree-data/portrait-pedigree/bowtie/"+focusUser+"?includeMarriages=true&includePhotos=true&includeSources=true&locale=en HTTP/1.1")
+      jQuery.get(baseURL + "/tree-data/portrait-pedigree/bowtie/"+focusUser+"?includeMarriages=true&includePhotos=true&includeSources=true&locale=en HTTP/1.1")
       .done(function(data) {
-        alert(data.data.husband.gender);
+        console.log(data);
+        console.log(_.keys(data.data));
+        console.log(data.data.husband.gender);
       }).fail(function() {
-        alert("error");
+        console.log("error");
       });
     } catch (error) {
-      alert(error.message);
+      console.log(error.message);
     }
 
   });  
