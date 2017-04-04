@@ -1,0 +1,3 @@
+/tree-data/portrait-pedigree/bowtie/KWCV-4LY?includeMarriages=true&includePhotos=false&includeSources=false&locale=en HTTP/1.1
+/tree-data/family-members/person/KWCV-4LY?tz=360&locale=en&includePhotos=true&_=1491290904681 HTTP/1.1
+/tree-data/family-members/couple/KWCV-4LY_KWCV-4LT/children?focusPersonId=KWCV-4LY&includePhotos=true&locale=en HTTP/1.1
