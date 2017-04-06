@@ -2,15 +2,18 @@
 var toScan;
 var leads = [];
 
-function ScanInfo(scanId, scanData, relationship, originId) {
+function ScanInfo(scanId, scanData, relationshipPath) {
 
-  return {
-    scanId: scanId,
-    scanData: scanData,
-    relationship: relationship,  // options are: initial, son, daughter, husband, wife, mother, father
-    originId: originId
-  };
+  this.id = scanId;
+  this.data = scanData;
+  this.path = relationshipPath; // Relationship[]
 
+}
+
+function Relationship(relType, relOrigin) {
+  // a relationship should be able to read out "I (the person at the end of the relationship path) am the <relType> of <relOrigin>."
+  this.type = relType;
+  this.origin = relOrigin;
 }
 
 function getCurrentTabUrl(callback) {
