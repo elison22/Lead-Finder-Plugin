@@ -8,10 +8,6 @@
     "scripts": ["background.js"],
     "persistent": false
   },
-  "content_scripts": [{
-    "matches" : ["http://*/*"],
-    "js": ["jquery-3.2.0.min.js", "lodash.js"]
-  }],
   "page_action": {
     "default_icon": "icon.png",
     "default_popup": "popup.html"

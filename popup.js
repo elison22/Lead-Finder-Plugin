@@ -34,35 +34,11 @@ function getCurrentTabUrl(callback) {
 
 }
 
-function getPersonData(personId, callback) {
-
-  jQuery.get("https://familysearch.org/tree-data/portrait-pedigree/bowtie/"+personId+"?includeMarriages=true&includePhotos=false&includeSources=false&locale=en HTTP/1.1")
-    .done(function(data) {
-      callback(personId, data);
-    });
-
-}
-
-function scanPerson(personId, data) {
-
-  var coupleInfo = data.data;
-  console.log(coupleInfo);
-
-  // check children
-
-  // check spouse
-  // check parents
-
-}
-
 document.addEventListener('DOMContentLoaded', function() {
 
   getCurrentTabUrl(function(url) {
 
-    var focusUser = url.match(/.{4}-.{3}/g)[0];
-    var initialUser = ScanInfo(focusUser, null, "initial");
-
-    getPersonData(focusUser, scanPerson);
+    FS.getData(FS.getPersonUrl(Util.getIDFromUrl(url)), function(data) { console.log(data.data); });
 
   });  
 });
